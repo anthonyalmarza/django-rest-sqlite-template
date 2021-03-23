@@ -1,0 +1,15 @@
+{% raw %}from typing import List
+
+from rest_framework.viewsets import ModelViewSet
+from . import serializers, models
+
+
+class {{ camel_case_app_name }}ViewSet(ModelViewSet):
+
+    serializer_class = serializers.{{ camel_case_app_name }}Serializer
+    search_fields: List[str] = []
+    ordering_fields = ["created", ]
+
+    def get_queryset(self):
+        return models.{{ camel_case_app_name }}.objects.all()
+{% endraw %}

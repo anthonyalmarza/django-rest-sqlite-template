@@ -1,0 +1,9 @@
+{% raw %}%from factory import Faker
+from factory.django import DjangoModelFactory
+
+
+class {{ camel_case_app_name }}Factory(DjangoModelFactory):
+
+    class Meta:
+        model = "{{ app_name }}.{{ camel_case_app_name }}"
+{% endraw %}

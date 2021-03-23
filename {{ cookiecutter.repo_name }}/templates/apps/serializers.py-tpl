@@ -1,0 +1,10 @@
+{% raw %}from rest_framework import serializers
+from . import models
+
+
+class {{ camel_case_app_name }}Serializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.{{ camel_case_app_name }}
+        fields = "__all__"
+{% endraw %}

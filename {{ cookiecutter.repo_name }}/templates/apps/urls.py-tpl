@@ -1,0 +1,12 @@
+{% raw %}from rest_framework import routers
+from . import views
+
+router = routers.SimpleRouter()
+router.register(
+    "",
+    views.{{ camel_case_app_name }}ViewSet,
+    basename="{{ app_name }}"
+)
+
+urlpatterns = router.urls
+{% endraw %}

@@ -1,0 +1,10 @@
+{% raw %}# https://docs.djangoproject.com/en/3.1/ref/contrib/admin/
+
+from django.contrib import admin
+from . import models
+
+
+@admin.register(models.{{ camel_case_app_name }})
+class {{ camel_case_app_name }}Admin(admin.ModelAdmin):
+    pass
+{% endraw %}

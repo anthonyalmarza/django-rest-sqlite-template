@@ -1,0 +1,6 @@
+{% raw %}from django.apps import AppConfig
+
+
+class {{ camel_case_app_name }}Config(AppConfig):
+    name = {% endraw %}"{{ cookiecutter.project_name }}{% raw %}.{{ app_name }}"
+{% endraw %}

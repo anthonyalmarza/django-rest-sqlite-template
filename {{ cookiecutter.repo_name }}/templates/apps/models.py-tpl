@@ -1,0 +1,14 @@
+{% raw %}from django.db import models
+from {% endraw %}{{ cookiecutter.project_name }}{% raw %}.utils.models import TimeStampedModel
+
+
+class {{ camel_case_app_name }}(TimeStampedModel):
+    """
+    {{ camel_case_app_name }} model.
+    Fields:
+        pk - auto field
+        created - datetime field
+        modified - datetime field
+    """
+    pass
+{% endraw %}

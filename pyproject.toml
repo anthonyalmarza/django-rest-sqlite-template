@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "drf-lambda-project"
+version = "0.0.0"
+description = "A bloated Django REST Framework + AWS Lambda template project"
+authors = ["Anthony Almarza <anthony.almarza@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+# https://pypi.org/classifiers/
+classifiers = [
+    "Private :: Not For Public Release"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+cookiecutter = "^1.7.2"
+pre-commit = "^2.11.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+#[tool.poetry.scripts]
+#tests = "scripts.tests:main"
+
+[tool.black]
+line-length = 79
+
+[tool.pytest.ini_options]
+addopts = "-s"
+python_files = [
+    "test_*.py",
+    "tests.py",
+    "*_tests.py"
+]
+testpaths = [
+    "./tests",
+]

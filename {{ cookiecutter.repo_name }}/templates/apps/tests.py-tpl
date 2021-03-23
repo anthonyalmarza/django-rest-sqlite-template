@@ -1,0 +1,30 @@
+{% raw %}import pytest
+from . import models, views, serializers, factories  # noqa: F401
+
+pytestmark = [pytest.mark.django_db]
+
+
+@pytest.fixture(autouse=True)
+def setup_data_context():
+    factories.{{ camel_case_app_name }}Factory.create_batch(10)
+    yield
+    # after the tests have run
+
+
+def test_{{ app_name }}_rest_get(api_client):
+    response = api_client.get('/{{ app_name }}/')
+    assert response.status_code == 200
+
+
+def test_{{ app_name }}_rest_post(api_client):
+    response = api_client.post('/{{ app_name }}/', {})
+    assert response.status_code == 201
+
+
+def test_{{ app_name }}_rest_delete(api_client):
+    instance = models.{{ camel_case_app_name }}.objects.first()
+    assert instance is not None
+    response = api_client.delete(f'/{{ app_name }}/{instance.id}/')
+    assert response.status_code == 204
+    assert not models.{{ camel_case_app_name }}.objects.filter(id=instance.id)
+{% endraw %}
